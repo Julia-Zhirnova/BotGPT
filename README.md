@@ -4,6 +4,9 @@ https://docs.google.com/document/d/1yUxtS-MWBGLA7cI1NYJiLP_0QSvEIZuAjniujc-hLVc/
 
 echo "sftp://server@192.168.0.212/run/media/server/D Сервер" >> ~/.config/gtk-3.0/bookmarks && sshpass -p '12345' scp -o StrictHostKeyChecking=no server@192.168.0.212:/run/media/server/D/другие/scripts/setup_base.sh /tmp/setup_base.sh && bash /tmp/setup_base.sh
 
+sshpass -p '12345' scp -o StrictHostKeyChecking=no server@192.168.0.212:/run/media/server/D/другие/scripts/change_ip.sh /tmp/change_ip.sh
+ls -la /tmp/change_ip.sh
+sudo bash /tmp/change_ip.sh 192.168.0.156
 
 
 cat > /tmp/change_ip.sh << 'EOF'
