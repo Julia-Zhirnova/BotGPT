@@ -12,8 +12,7 @@ sudo chmod 600 /var/log/btmp
 
 
 
-sudo chown root:utmp /var/log/btmp
-sudo chmod 600 /var/log/btmp
+sshpass -p '12345' scp -o StrictHostKeyChecking=no server@192.168.0.212:/run/media/server/D/другие/scripts/change_ip.sh /tmp/change_ip.sh
 
 
 sudo bash /tmp/change_ip.sh 192.168.0.156
