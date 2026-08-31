@@ -6,14 +6,20 @@ echo "sftp://server@192.168.0.212/run/media/server/D Сервер" >> ~/.config/
 
 
 
+# Исправленная команда для sshd_config
+sudo sed -i 's/^AllowUsers.*/AllowUsers lab202 kab303 server root/' /etc/ssh/sshd_config
 
+# Правильная проверка UsePAM
+if ! sudo grep -q "^UsePAM" /etc/ssh/sshd_config; then
+    echo "UsePAM yes" | sudo tee -a /etc/ssh/sshd_config
+fi
+
+# Раздельные команды для chown и chmod
 sudo chown root:utmp /var/log/btmp
 sudo chmod 600 /var/log/btmp
 
+# Перезапуск SSH
+sudo systemctl restart sshd
 
-
-sshpass -p '12345' scp -o StrictHostKeyChecking=no server@192.168.0.212:/run/media/server/D/другие/scripts/change_ip.sh /tmp/change_ip.sh
-
-
-sudo bash /tmp/change_ip.sh 192.168.0.156
-
+# Проверка SSH
+sshpass -p '12345' ssh -o StrictHostKeyChecking=no kab303@localhost "echo '✅ SSH РАБОТАЕТ'"
