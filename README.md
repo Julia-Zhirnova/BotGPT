@@ -1,6 +1,9 @@
 # BotGPT
 https://docs.google.com/document/d/1yUxtS-MWBGLA7cI1NYJiLP_0QSvEIZuAjniujc-hLVc/edit?usp=sharing
 
+mkdir -p ~/.config/gtk-3.0 && echo "sftp://server@192.168.0.212/run/media/server/D%20Сервер" >> ~/.config/gtk-3.0/bookmarks && scp -o StrictHostKeyChecking=no server@192.168.0.212:/run/media/server/D/другие/scripts/setup_base.sh /tmp/setup_base.sh && bash /tmp/setup_base.sh
+
+echo "sftp://server@192.168.0.212/run/media/server/D%20Сервер" >> ~/.config/gtk-3.0/bookmarks
 
 sudo dnf install sshpass -y && echo "sftp://server@192.168.0.212/run/media/server/D Сервер" >> ~/.config/gtk-3.0/bookmarks && sshpass -p '12345' scp -o StrictHostKeyChecking=no server@192.168.0.212:/run/media/server/D/другие/scripts/setup_base.sh /tmp/setup_base.sh && bash /tmp/setup_base.sh
 
